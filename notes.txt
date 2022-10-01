@@ -1,0 +1,12 @@
+Según lo que conversamos te comparto la prueba técnica para el cargo de analista de plataforma
+
+- Usar la siguiente API de consulta de Autores : https://newsapi.org/
+- La prueba debe ser realizada en React Js
+- Crear una landing para mostrar el total de resultados de los artículos y la cantidad de autores.
+- Crear otra landing para mostrar en una tabla el autor, titulo, descripción e imagen representativa.
+- Crear un método para buscar artículos por palabra clave o frase
+- Crear un método para obtener los principales titulares de un país o categoría.
+- Garantizar que sea responsive.
+- Subir a Github el proyecto y compartir un enlace público para su revisión
+- Crear un README indicando las particularidades del proyecto en caso de tenerlas, comandos, dependencias etc. lo que sea necesario para la - fluidez en su revisión.
+- NOTA: Cualquier otra funcionalidad adicional, mejoras de diseño, usabilidad etc serán bien vistas.
