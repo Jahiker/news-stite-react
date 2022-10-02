@@ -1,22 +1,17 @@
-import { useEffect } from 'react'
-import './App.scss'
+import React, {useState} from 'react'
+import { Header } from "./components/Header";
+
+import { GlobalStyles } from './GlobalStyles';
 
 function App() {
-  const API_KEY = '70abb1a6c8f645e88f3c7c8f2485e3ce';
-
-  useEffect(() => {
-    
-    const news = fetch(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API_KEY}`)
-      .then((resp) => resp.json())
-      .then((data) => console.log(data))
-    
-  },[])
+  const [darkTheme, setDarkTheme] =  useState(false);
 
   return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
-  )
+    <>
+      <GlobalStyles darkTheme={darkTheme} />
+      <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+    </>
+  );
 }
 
-export default App
+export default App;
