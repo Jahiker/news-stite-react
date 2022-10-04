@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from "react";
 
 import { CardNews } from "../components/CardNews";
+import { CardLoader } from "../components/CardLoader";
 
 export const News = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://newsapi.org/v2/everything?q=all&apiKey=70abb1a6c8f645e88f3c7c8f2485e3ce")
+    const fetchNews = async () => {
+      const data = await fetch(`https://newsapi.org/v2/everything?q=all&apiKey=${import.meta.env.VITE_API_KEY}`)
       .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if(response.status === "ok") {
-          setNews(response.articles)
-        }
-      })
+      .then((response) => response)
       .catch((err) => console.error(err));
-  }, [news]);
+      
+      if(data.status === 'ok') {
+        setNews(data.articles)
+        setLoading(false)
+      }
+
+    }
+
+    fetchNews();
+    
+  }, []);
+
   return (
     <>
       <div className="container">
         <div className="news-grid">
-          {news.map((item) => (
-            <CardNews item={item} />
+          {loading && [1,2,3,4,5,6,7,8,9,10].map((item) => {
+              return (<CardLoader key={item} />)
+          })}
+
+          {!loading && news?.map((item, index) => (
+            <CardNews key={`${item.publishedAt}-${index}`} item={item} />
           ))}
         </div>
       </div>
