@@ -6,7 +6,7 @@ export const CardNews = ({ item }) => {
   return (
     <CardStyled>
       <figure className="img">
-        <img src={item.urlToImage} alt={item.title} />
+        <img src={item.urlToImage} alt={item.title} loading="lazy"/>
       </figure>
       <div className="data-news">
         <h5>{item.title}</h5>
