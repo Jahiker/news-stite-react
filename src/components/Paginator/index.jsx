@@ -1,29 +1,30 @@
 import React, { useState } from "react";
+import { PaginationElement } from "./styles";
+import { useNavigate } from "react-router-dom";
 
-export const Paginator = ({ totalNews, pageSize, setPage }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+export const Paginator = ({ totalNews, pageSize, currentPage = 1 }) => {
   let pages = totalNews / pageSize;
-  console.log("PAGES: ", pages);
 
-  const prevPage = () => {
-    if (currentPage <= 1) return;
-    const pageIndex = currentPage - 1
-    setCurrentPage(pageIndex);
-    setPage(pageIndex)
-  }
+  const navigate = useNavigate();
 
-  const nextPage = () => {
-    if ( currentPage >= pages ) return;
-    const pageIndex = currentPage + 1
-    setCurrentPage(pageIndex);
-    setPage(pageIndex);
+  const changePage = (event) => {
+    
+    const change = parseInt(event.target.dataset.pageChange)
+    const currentPageIndex = parseInt(currentPage)
+
+    if (currentPage <= 1 && change < 0) return;
+    
+    const pageIndex = currentPageIndex + change
+
+    navigate(`/${pageIndex}`)
+
   }
 
   return (
-    <div>
-      <button onClick={prevPage}>prev</button>
+    <PaginationElement>
+      <button onClick={() => changePage(event)} data-page-change="-1">prev</button>
       <span>{ currentPage }</span>
-      <button onClick={nextPage}>next</button>
-    </div>
+      <button onClick={() => changePage(event)} data-page-change="1">next</button>
+    </PaginationElement>
   );
 };

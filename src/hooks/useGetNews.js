@@ -23,7 +23,7 @@ export const useGetNews = (query, page, pageSize, endpoint) => {
     };
 
     fetchNews();
-  }, []);
+  }, [page]);
 
   return {
     news, totalNews, loading

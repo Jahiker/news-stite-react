@@ -7,7 +7,12 @@ export const router = [
         id: 1,
         path: '/',
         element: Home,
-        name: 'Home'
+        name: 'Home',
+        innerRouter: {
+            path: '/:number',
+            element: Home,
+            name: 'HomePage',
+        }
     },
     {
         id: 2,

@@ -20,7 +20,11 @@ function App() {
               path={route.path}
               element={<route.element />}
               key={`route-${route.id}`}
-            />
+            >
+              {route.innerRouter &&(
+                <Route path={route.innerRouter.path} element={<route.innerRouter.element />} key={`subroute-${route.id}`} />
+              )}
+            </Route>
           );
         })}
         <Route
