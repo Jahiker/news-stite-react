@@ -3,7 +3,7 @@ import { PaginationElement } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 export const Paginator = ({ totalNews, pageSize, currentPage = 1 }) => {
-  let pages = totalNews / pageSize;
+  let pages = Math.round(totalNews / pageSize);
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export const Paginator = ({ totalNews, pageSize, currentPage = 1 }) => {
   return (
     <PaginationElement>
       <button onClick={() => changePage(event)} data-page-change="-1">prev</button>
-      <span>{ currentPage }</span>
+      <span>{ currentPage } of { pages }</span>
       <button onClick={() => changePage(event)} data-page-change="1">next</button>
     </PaginationElement>
   );

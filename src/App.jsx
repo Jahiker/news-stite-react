@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "./components/Header";
+import { SearchBar } from "./components/SearchBar";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { router } from "./router";
@@ -13,6 +14,7 @@ function App() {
     <HashRouter>
       <GlobalStyles darkTheme={darkTheme} />
       <Header darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      <SearchBar />
       <Routes>
         {router.map((route) => {
           return (

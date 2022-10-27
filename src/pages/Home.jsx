@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 export const Home = () => {
   const [query, setQuery] = useState("all");
   const [page, setPage] = useState("1");
-  const pageSize = 12;
+  const pageSize = 16;
 
   const { news, totalNews, loading } = useGetNews(query, page, pageSize);
 
