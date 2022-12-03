@@ -7,8 +7,11 @@ import { router } from "./router";
 
 import { GlobalStyles } from "./GlobalStyles";
 
+import { themeStorage } from "./helpers";
+
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
+
+  const [darkTheme, setDarkTheme] = useState(themeStorage());
 
   return (
     <HashRouter>

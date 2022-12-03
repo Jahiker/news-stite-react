@@ -17,6 +17,7 @@ export const SearchForm = styled.form`
       border: 2px solid var(--color-font);
       border-radius: 5px;
       padding: 5px;
+      color: var(--color-dark);
     }
 
     button[type="submit"] {
